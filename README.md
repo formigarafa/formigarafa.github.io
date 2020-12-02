@@ -26,3 +26,5 @@ Change `cacheStorageKey` in `sw.js` to update app version.
 ### License
 
 MIT
+
+### trying directly from github pages
