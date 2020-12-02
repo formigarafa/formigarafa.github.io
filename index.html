@@ -13,6 +13,12 @@
   <div class="main-text">
     Minimal PWA, open Console for more!
   </div>
+  <div class="upload">
+    <label for="input1">setup1 <input id="input1" type="file" accept="image/*"></label>
+    <label for="input2">setup2 <input id="input2" type="file" accept="image/*" capture="user"></label>
+    <label for="input3">setup3 <input id="input3" type="file" accept="image/*" capture="environment"></label>
+    <img id="preview" src="#" alt="your image" />
+  </div>
   <div class="network-message">
     Network:
     <span id="network-status" class="">Good</span>
@@ -32,5 +38,28 @@
       statusEl.classList = ['is-offline']
       statusEl.innerText = 'Offline'
     }
+
+    function readIMG(event) {
+      var input = event.target;
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          preview = document.getElementById('preview');
+          preview.src = e.target.result;
+        }
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+     var myInput;
+     myInput = document.getElementById('input1');
+     myInput.addEventListener('change', readIMG, false);
+
+     myInput = document.getElementById('input2');
+     myInput.addEventListener('change', readIMG, false);
+
+     myInput = document.getElementById('input1');
+     myInput.addEventListener('change', readIMG, false);
   </script>
 </body>
